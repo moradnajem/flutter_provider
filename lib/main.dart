@@ -22,23 +22,61 @@ class _homepageState extends State<homepage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context)=> number(),
-        child: Scaffold(
-        body: new Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text("Text -- ${x++}",style: TextStyle(fontSize: 50),),
-            btn(),  // StatelessWidget
-            txt1(), // StatelessWidget
-            txt2(), // StatelessWidget / Selector
-            txt3(), // Widget
-            txt4(), // Widget
-            Container(color: Colors.red,height: 1.2,child: Divider()),
-            txt5(),
-            btn2(),
-            d_d(),// Widget
-          ],
+      create: (context)=> number(),
+      child: Container(
+        color: Colors.deepOrange,
+        child: SafeArea(
+          child: Scaffold(
+            body: new Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  decoration: BoxDecoration(
+                      color: Colors.black12.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: InkWell(
+                      highlightColor: Colors.transparent,
+                      splashColor: Colors.transparent,
+                      onTap: (){setState(() {});},
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Column(
+                                children: <Widget>[
+                                  Text("Refresh",style: TextStyle(fontSize: 35,color: Colors.blue)),
+                                  Text("setState",style: TextStyle(fontSize: 20),),
+                                ],
+                              ),
+                              Icon(Icons.refresh,size: 50,),
+                            ],
+                          ),
+                          Text("Text -- ${x++}",style: TextStyle(fontSize: 50),),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Container(color: Colors.red,height: 1.2,child: Divider()),
+                btn(),  // StatelessWidget
+                txt1(), // StatelessWidget
+                txt2(), // StatelessWidget / Selector
+                txt3(), // Widget
+                txt4(),
+                btn2(),// Widget
+                Container(color: Colors.red,height: 1.2,child: Divider()),
+                txt5(),
+                d_d(),// Widget
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -82,11 +120,11 @@ class txt2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Selector<number,int>(
-        selector: (context,_number)=> _number.getnumber,
-        builder: (context,any,widget){
-          return Center(
-              child: Text("Selector --less $any",style: TextStyle(fontSize: 35,color: Colors.red),));
-        },
+      selector: (context,_number)=> _number.getnumber,
+      builder: (context,any,widget){
+        return Center(
+            child: Text("Selector --less $any",style: TextStyle(fontSize: 35,color: Colors.red),));
+      },
 
     );
   }
@@ -176,10 +214,3 @@ Widget d_d(){
     );
   });
 }
-
-
-
-
-
-
-
