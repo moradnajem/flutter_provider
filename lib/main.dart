@@ -154,6 +154,7 @@ Widget d_d(){
           borderRadius: BorderRadius.circular(10)),
       child: DropdownButton<String>(
           value: value.getstring,
+          hint: Text("Select",style: TextStyle(fontSize: 25),),
           isExpanded: true,
           icon: Icon(Icons.arrow_drop_down),
           iconSize: 42,
