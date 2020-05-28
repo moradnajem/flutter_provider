@@ -122,7 +122,7 @@ Widget txt4(){
 Widget txt5(){
   return Builder(builder: (BuildContext context){
     final value = Provider.of<number>(context);
-    return Text("Selector --W-- ${value.getstring}",style: TextStyle(fontSize: 35,color: Colors.orange),);
+    return Text("Dropdown -- ${value.getstring}",style: TextStyle(fontSize: 35,color: Colors.orange),);
   });
 }
 
@@ -146,9 +146,9 @@ Widget btn2(){
 Widget d_d(){
   return Builder(builder: (BuildContext context){
     final value = Provider.of<number>(context);
-    var dropdownValue ;
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
           color: Colors.black12,
           borderRadius: BorderRadius.circular(10)),
