@@ -18,6 +18,7 @@ class homepage extends StatefulWidget {
 
 class _homepageState extends State<homepage> {
   var x = 0;
+  var y = "";
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -33,7 +34,9 @@ class _homepageState extends State<homepage> {
             txt2(), // StatelessWidget / Selector
             txt3(), // Widget
             txt4(), // Widget
-            btn2(), // Widget
+            txt5(),
+            btn2(),
+            d_d(),// Widget
           ],
         ),
       ),
@@ -112,6 +115,19 @@ Widget txt4(){
 }
 
 
+
+
+
+Widget txt5(){
+  return Builder(builder: (BuildContext context){
+    final value = Provider.of<number>(context);
+    return Text("Selector --W-- ${value.getstring}",style: TextStyle(fontSize: 35,color: Colors.orange),);
+  });
+}
+
+
+
+
 Widget btn2(){
   return Builder(builder: (BuildContext context){
     final value = Provider.of<number>(context);
@@ -122,3 +138,46 @@ Widget btn2(){
         ));
   });
 }
+
+
+
+
+Widget d_d(){
+  return Builder(builder: (BuildContext context){
+    final value = Provider.of<number>(context);
+    var dropdownValue ;
+    return Container(
+      padding:
+      EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10)),
+      child: DropdownButton<String>(
+          value: dropdownValue,
+          icon: Icon(Icons.arrow_drop_down),
+          iconSize: 42,
+          underline: SizedBox(),
+          onChanged: (_) {
+            value.getstring = _;
+          },
+          items: <String>[
+            'One',
+            'Two',
+            'Three',
+            'Four'
+          ].map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList()),
+    );
+  });
+}
+
+
+
+
+
+
+
