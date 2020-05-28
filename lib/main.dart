@@ -18,7 +18,6 @@ class homepage extends StatefulWidget {
 
 class _homepageState extends State<homepage> {
   var x = 0;
-  var y = "";
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
