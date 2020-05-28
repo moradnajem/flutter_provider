@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 
 class number with ChangeNotifier{
   int _number = 0;
-  String _dd = "";
+  String _dd ;
 
 
   int get getnumber => _number;

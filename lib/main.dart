@@ -34,6 +34,7 @@ class _homepageState extends State<homepage> {
             txt2(), // StatelessWidget / Selector
             txt3(), // Widget
             txt4(), // Widget
+            Container(color: Colors.red,height: 1.2,child: Divider()),
             txt5(),
             btn2(),
             d_d(),// Widget
@@ -147,13 +148,13 @@ Widget d_d(){
     final value = Provider.of<number>(context);
     var dropdownValue ;
     return Container(
-      padding:
-      EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.black12,
           borderRadius: BorderRadius.circular(10)),
       child: DropdownButton<String>(
-          value: dropdownValue,
+          value: value.getstring,
+          isExpanded: true,
           icon: Icon(Icons.arrow_drop_down),
           iconSize: 42,
           underline: SizedBox(),
